@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text should be visible.
+  </div>
+
+  <script>
+    // Incorrectly closing the div tag before appending content
+    document.getElementById("myDiv").innerHTML = 
+      '<p>This paragraph should be added to the div.</p>';
+    document.getElementById("myDiv").outerHTML += '<p>This should not appear due to outerHTML usage</p>';
+
+    // Correct way to append content
+    const newParagraph = document.createElement('p');
+    newParagraph.textContent = 'This paragraph is correctly added.';
+    document.getElementById('myDiv').appendChild(newParagraph);
+  </script>
+</body>
+</html>
