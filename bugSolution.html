@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text should be visible.
+  </div>
+
+  <script>
+    // Correct way to append content using innerHTML or createElement
+    document.getElementById("myDiv").innerHTML += '<p>This paragraph is correctly added using innerHTML.</p>';
+
+    const newParagraph = document.createElement('p');
+    newParagraph.textContent = 'This paragraph is correctly added using createElement.';
+    document.getElementById('myDiv').appendChild(newParagraph);
+  </script>
+</body>
+</html>
